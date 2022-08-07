@@ -13,8 +13,6 @@ public class InsertActivity extends AppCompatActivity {
     EditText edName,edPhone;
     Button BtSave;
     DbHelper DB;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
