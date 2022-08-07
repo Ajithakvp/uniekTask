@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">uniekTask</string>
+    <string name="Navopen">Open</string>
+    <string name="Navclose">Close</string>
+</resources>
