@@ -91,10 +91,12 @@ public class MainActivity extends AppCompatActivity   {
                 if (hiddenview1.getVisibility() == View.VISIBLE) {
                     image1.setVisibility(View.VISIBLE);
                     image2.setVisibility(View.GONE);
+                    hiddenview.setVisibility(View.GONE);
                     hiddenview1.setVisibility(View.GONE);
                 } else {
                     image1.setVisibility(View.GONE);
                     image2.setVisibility(View.VISIBLE);
+                    hiddenview.setVisibility(View.GONE);
                     hiddenview1.setVisibility(View.VISIBLE);
                 }
             }
@@ -106,9 +108,11 @@ public class MainActivity extends AppCompatActivity   {
                 if (hiddenview1.getVisibility() == View.VISIBLE) {
                     image1.setVisibility(View.VISIBLE);
                     image2.setVisibility(View.GONE);
+                    hiddenview.setVisibility(View.GONE);
                     hiddenview1.setVisibility(View.GONE);
                 } else {
                     image1.setVisibility(View.GONE);
+                    hiddenview.setVisibility(View.GONE);
                     image2.setVisibility(View.VISIBLE);
                     hiddenview1.setVisibility(View.VISIBLE);
                 }
@@ -122,10 +126,12 @@ public class MainActivity extends AppCompatActivity   {
                 if (hiddenview.getVisibility() == View.VISIBLE) {
                     image.setVisibility(View.VISIBLE);
                     image3.setVisibility(View.GONE);
+                    hiddenview1.setVisibility(View.GONE);
                     hiddenview.setVisibility(View.GONE);
                 } else {
                     image3.setVisibility(View.VISIBLE);
                     image.setVisibility(View.GONE);
+                    hiddenview1.setVisibility(View.GONE);
                     hiddenview.setVisibility(View.VISIBLE);
                 }
 
@@ -140,10 +146,12 @@ public class MainActivity extends AppCompatActivity   {
                 if (hiddenview.getVisibility() == View.VISIBLE) {
                     image.setVisibility(View.VISIBLE);
                     image3.setVisibility(View.GONE);
+                    hiddenview1.setVisibility(View.GONE);
                     hiddenview.setVisibility(View.GONE);
                 } else {
                     image3.setVisibility(View.VISIBLE);
                     image.setVisibility(View.GONE);
+                    hiddenview1.setVisibility(View.GONE);
                     hiddenview.setVisibility(View.VISIBLE);
                 }
             }
