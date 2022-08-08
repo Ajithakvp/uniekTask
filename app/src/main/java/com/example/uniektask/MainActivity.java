@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity   {
     LinearLayout hiddenview, hiddenview1;
     TextView tvInsert, tvView, tvIcon, tvMap;
 
+    RelativeLayout rlayout1,rlayout;
+
     LocationManager locationManager;
 
     @Override
@@ -59,6 +63,8 @@ public class MainActivity extends AppCompatActivity   {
         tvMap = findViewById(R.id.tvMap);
         hiddenview = findViewById(R.id.hiddenview);
         hiddenview1 = findViewById(R.id.hiddenview1);
+        rlayout1=findViewById(R.id.rlayout1);
+        rlayout=findViewById(R.id.rlayout);
 
         tvInsert = findViewById(R.id.tvInsert);
         tvView = findViewById(R.id.tvView);
@@ -78,7 +84,8 @@ public class MainActivity extends AppCompatActivity   {
             }
         });
 
-        image1.setOnClickListener(new View.OnClickListener() {
+
+        rlayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenview1.getVisibility() == View.VISIBLE) {
@@ -93,7 +100,7 @@ public class MainActivity extends AppCompatActivity   {
             }
         });
 
-        image2.setOnClickListener(new View.OnClickListener() {
+        rlayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenview1.getVisibility() == View.VISIBLE) {
@@ -109,7 +116,7 @@ public class MainActivity extends AppCompatActivity   {
         });
 
 
-        image.setOnClickListener(new View.OnClickListener() {
+        rlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenview.getVisibility() == View.VISIBLE) {
@@ -127,7 +134,7 @@ public class MainActivity extends AppCompatActivity   {
         });
 
 
-        image3.setOnClickListener(new View.OnClickListener() {
+        rlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenview.getVisibility() == View.VISIBLE) {
@@ -184,7 +191,7 @@ public class MainActivity extends AppCompatActivity   {
                     Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
                     try {
                         List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        String Locate = addresses.get(0).getLocality();
+                        String Locate = addresses.get(0).getAddressLine(0);
 
                         Toast.makeText(MainActivity.this, Locate, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
@@ -220,21 +227,24 @@ public class MainActivity extends AppCompatActivity   {
     }
 
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-
-
-
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
+
+
+
+
+
 
 
 }
