@@ -1,7 +1,6 @@
 package com.example.uniektask;
 
 import android.app.Activity;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,14 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Activity activity;
-    DbHelper DB;
-    Cursor cursor=DB.getdata();
+   // DbHelper DB;
+   // Cursor cursor=DB.getdata();
+ private ArrayList tvName,tvPhone;
 
-    public Adapter(Activity activity) {
+    public Adapter(Activity activity, ArrayList tvName, ArrayList tvPhone) {
         this.activity = activity;
+        this.tvName = tvName;
+        this.tvPhone = tvPhone;
     }
 
     @NonNull
@@ -33,8 +35,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
 
-        holder.tvName.setText(cursor.getString(0));
-        holder.tvPhone.setText(cursor.getString(1));
+        holder.tvName.setText(String.valueOf(tvName.get(position)));
+        holder.tvPhone.setText(String.valueOf(tvPhone.get(position)));
 
 
 
@@ -43,7 +45,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return tvName.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

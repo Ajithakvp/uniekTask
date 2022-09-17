@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ViewActivity extends AppCompatActivity {
 
     TextView tvName,tvPhone;
@@ -16,24 +18,28 @@ public class ViewActivity extends AppCompatActivity {
     Adapter adapter;
     RecyclerView rvData;
 
+    ArrayList<String> Name,Phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
         tvPhone=findViewById(R.id.tvPhone);
        tvName=findViewById(R.id.tvName);
-       // rvData=findViewById(R.id.rvData);
+       rvData=findViewById(R.id.rvData);
        DB=new DbHelper(this);
+       Name =new ArrayList<>();
+       Phone=new ArrayList<>();
 
-/*
-        adapter=new Adapter(this);
+
+        adapter=new Adapter(this,Name,Phone);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         rvData.setAdapter(adapter);
-        rvData.setLayoutManager(linearLayoutManager);*/
+        rvData.setLayoutManager(linearLayoutManager);
 
 
-        String Name=tvName.getText().toString();
-        String Phone=tvPhone.getText().toString();
+       // String Name=tvName.getText().toString();
+        //String Phone=tvPhone.getText().toString();
 
         Cursor cursor=DB.getdata();
 
@@ -45,9 +51,10 @@ public class ViewActivity extends AppCompatActivity {
         }else {
         StringBuffer buffer=new StringBuffer();
         while (cursor.moveToNext()) {
-
-           tvName.setText(cursor.getString(0));
-           tvPhone.setText(cursor.getString(1));
+Name.add(cursor.getString(0));
+Phone.add(cursor.getString(1));
+         //  tvName.setText(cursor.getString(0));
+         //  tvPhone.setText(cursor.getString(1));
         }
 
 
